@@ -72,9 +72,7 @@ class ArticleManagerImplTest {
         Article articleToUpdate = new Article(1, "Updated Article", 10.0, 5.0, true);
         when(articleRepository.findById(articleToUpdate.getId())).thenReturn(Optional.empty());
 
-        assertThrows(ArticleNotFoundException.class, () -> {
-            articleManager.updateArticle(articleToUpdate);
-        });
+        assertThrows(ArticleNotFoundException.class, () -> articleManager.updateArticle(articleToUpdate));
         verify(articleRepository, never()).save(articleToUpdate);
     }
 
@@ -83,9 +81,7 @@ class ArticleManagerImplTest {
     void testDeleteArticleThrowsArticleNotFoundException() {
         when(articleRepository.findById(any())).thenReturn(Optional.empty());
 
-        assertThrows(ArticleNotFoundException.class, () -> {
-            articleManager.deleteArticle(any());
-        });
+        assertThrows(ArticleNotFoundException.class, () -> articleManager.deleteArticle(any()));
         verify(articleRepository, never()).deleteById(any());
     }
 }

@@ -2,13 +2,9 @@ package com.koerber.demo1.rest;
 
 import com.koerber.demo1.model.Article;
 import com.koerber.demo1.service.ArticleManager;
-import com.koerber.demo1.service.exceptions.ArticleNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 
 @RestController
 @RequestMapping("/api/articles")
